@@ -108,8 +108,11 @@ function getCharecteristics(service, characteristic) {
   }
   
   let options = {
-    acceptAllDevices: true,
-    optionalServices: [service]
+	  filters: [
+      {
+        services: [service]
+      }
+    ]
   };
   
   return navigator.bluetooth.requestDevice(options)
